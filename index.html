@@ -3,113 +3,188 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Project Ikonik | The Agency</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#151414">
 
+<title>Project Ikonik | Agency HQ</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --gold: #e9bc50;
+  --gold: #f4c75a;
+  --gold-dark: #ad8133;
   --dark: #101014;
-  --panel: #1b1b20;
-  --white: #f5f2e9;
+  --panel: #211f1c;
+  --white: #f6f2e8;
+  --muted: #bcb6aa;
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
   background: var(--dark);
   color: var(--white);
-  font-family: Rajdhani, sans-serif;
+  font-family: Rajdhani, Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  overflow-x: hidden;
 }
 
-h1,h2,h3,.logo,.btn {
-  font-family: Anton, sans-serif;
+h1, h2, h3, .logo, .btn {
+  font-family: Anton, Impact, sans-serif;
   font-weight: 400;
   letter-spacing: 1px;
+}
+
+h2 {
+  font-size: clamp(36px, 5vw, 58px);
+  margin: 0 0 12px;
+}
+
+h3 {
+  font-size: 27px;
+  margin: 10px 0;
+}
+
+p { line-height: 1.5; }
+
+a { color: inherit; }
+
+button { font: inherit; }
+
+section {
+  padding: 80px 6%;
+  scroll-margin-top: 85px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.label {
+  color: var(--gold);
+  letter-spacing: 4px;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  color: var(--muted);
+  font-size: 21px;
+  margin: 0 0 35px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 28px;
+  background: var(--gold);
+  border: 2px solid var(--gold);
+  color: #17130c;
+  text-decoration: none;
+  font-size: 19px;
+  cursor: pointer;
+  transition: .25s;
+}
+
+.btn:hover {
+  transform: translateY(-4px);
+  background: #ffe39b;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--gold);
+}
+
+.btn-outline:hover {
+  background: #332b1b;
+}
+
+a:focus-visible, button:focus-visible {
+  outline: 3px solid white;
+  outline-offset: 4px;
 }
 
 /* NAVIGATION */
 
 nav {
-  background: rgba(13,13,16,.97);
-  border-bottom: 3px solid var(--gold);
-  padding: 18px 7%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   position: sticky;
   top: 0;
   z-index: 100;
+  background: rgba(13, 13, 15, .97);
+  border-bottom: 2px solid var(--gold-dark);
+  padding: 15px 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
 }
 
 .logo {
-  font-size: 29px;
+  font-size: 27px;
   font-style: italic;
-}
-
-.logo span {
-  color: var(--gold);
-}
-
-.links {
-  display: flex;
-  gap: 25px;
-  flex-wrap: wrap;
-}
-
-.links a {
-  color: white;
   text-decoration: none;
-  font-weight: 700;
-  transition: .2s;
+  white-space: nowrap;
 }
 
-.links a:hover {
-  color: var(--gold);
+.logo span { color: var(--gold); }
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
 }
+
+.nav-links a {
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.nav-links a:hover { color: var(--gold); }
 
 /* HERO */
 
 .hero {
-  min-height: 85vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  min-height: 78vh;
+  padding: 95px 6%;
+  display: grid;
+  place-items: center;
   text-align: center;
-  padding: 100px 20px;
   position: relative;
+  isolation: isolate;
   overflow: hidden;
 
   background:
     radial-gradient(
       ellipse at center,
-      rgba(203,153,55,.22),
-      transparent 65%
+      rgba(196, 145, 46, .35),
+      transparent 60%
     ),
     linear-gradient(
-      145deg,
-      #121215,
-      #333025,
-      #09090b
+      135deg,
+      #111217,
+      #30291e 55%,
+      #0c0c10
     );
 }
 
 .hero::before {
-  content: "02";
+  content: "CLASSIFIED";
   position: absolute;
-  font-family: Anton;
-  font-size: 450px;
-  opacity: .035;
-  pointer-events: none;
+  bottom: 5%;
+  font-family: Anton, sans-serif;
+  font-size: clamp(60px, 15vw, 200px);
+  color: rgba(255, 255, 255, .035);
+  z-index: -1;
 }
 
 .hero-content {
@@ -118,259 +193,439 @@ nav {
 }
 
 .classified {
+  display: inline-block;
+  padding: 8px 18px;
   color: var(--gold);
   border: 1px solid var(--gold);
-  display: inline-block;
-  padding: 8px 22px;
-  letter-spacing: 4px;
-  font-weight: 700;
-  background: rgba(0,0,0,.4);
+  font-size: 14px;
+  letter-spacing: 3px;
 }
 
 .hero h1 {
-  font-size: clamp(65px, 12vw, 140px);
+  font-size: clamp(65px, 12vw, 145px);
+  font-style: italic;
   line-height: 1;
   margin: 25px 0;
-  font-style: italic;
-  text-shadow: 6px 7px #000;
+  text-shadow: 7px 8px rgba(0, 0, 0, .6);
 }
 
-.hero h1 span {
-  color: var(--gold);
-}
+.hero h1 span { color: var(--gold); }
 
 .hero p {
-  font-size: 23px;
-  color: #d1c9b6;
-  font-weight: 600;
+  font-size: 24px;
+  max-width: 700px;
+  margin: 0 auto 30px;
 }
 
-.buttons {
+.hero-buttons {
   display: flex;
-  gap: 18px;
-  justify-content: center;
+  gap: 15px;
   flex-wrap: wrap;
-  margin-top: 35px;
+  justify-content: center;
 }
 
-.btn {
-  display: inline-block;
-  padding: 15px 35px;
-  text-decoration: none;
-  font-size: 21px;
-  transition: .2s;
-  transform: skew(-5deg);
-  border: 0;
+/* FLOATING PARTICLES */
+
+.particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: -1;
 }
 
-.btn:hover {
-  transform: skew(-5deg) scale(1.05);
+.particles i {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: rgba(244, 199, 90, .7);
+  border-radius: 50%;
+  left: var(--x);
+  top: var(--y);
+  animation: float var(--duration) ease-in-out infinite alternate;
 }
 
-.gold {
-  background: var(--gold);
-  color: #111;
-  box-shadow: 5px 5px #92712b;
+@keyframes float {
+  to {
+    transform: translate(25px, -45px);
+    opacity: .2;
+  }
 }
 
-.outline {
-  color: var(--gold);
-  border: 2px solid var(--gold);
-  background: #151515;
-}
+/* STATUS STRIP */
 
-/* SECTIONS */
-
-section {
-  padding: 85px 8%;
-}
-
-.section-title {
-  font-size: clamp(38px, 6vw, 60px);
-  text-align: center;
-  margin: 0 0 15px;
-}
-
-.subtitle {
-  color: #aaa;
-  text-align: center;
-  font-size: 20px;
-  margin-bottom: 45px;
-}
-
-/* AGENCY */
-
-.agency {
-  background: #18181c;
-}
-
-.agency-box {
-  max-width: 950px;
-  margin: auto;
-  padding: 50px 30px;
-  background: linear-gradient(135deg,#29271f,#111115);
-  border: 1px solid #756039;
-  text-align: center;
-}
-
-.agency-symbol {
-  font-size: 75px;
-  color: var(--gold);
-}
-
-.agency-box h3 {
-  font-size: 40px;
-  margin: 10px;
-}
-
-.agency-box p {
-  font-size: 20px;
-  color: #c7c2b5;
-}
-
-/* FACTIONS */
-
-.factions {
-  background: #101014;
-}
-
-.faction-grid {
+.status-strip {
   display: grid;
-  grid-template-columns: repeat(2,1fr);
-  gap: 25px;
-  max-width: 1100px;
-  margin: auto;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  padding: 22px 6%;
+  background: #171615;
 }
 
-.faction {
-  min-height: 330px;
-  padding: 35px;
+.status-item {
+  padding: 20px;
+  text-align: center;
+  background: #24211c;
+  border: 1px solid #685332;
+}
+
+.status-item strong {
+  display: block;
+  font-family: Anton, sans-serif;
+  font-size: 23px;
+  color: var(--gold);
+}
+
+.status-item span {
+  color: var(--muted);
+  font-size: 15px;
+}
+
+/* AGENCY DASHBOARD */
+
+.dashboard {
+  background: linear-gradient(#171719, #242019);
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 18px;
+}
+
+.panel {
+  min-height: 225px;
+  padding: 26px;
+  background: linear-gradient(145deg, #30291d, #18181b);
+  border: 1px solid #6d5733;
+}
+
+.panel.featured {
+  background: radial-gradient(
+    circle at top right,
+    #735628,
+    #211e1a 65%
+  );
+}
+
+.panel-icon {
+  font-size: 39px;
+  color: var(--gold);
+}
+
+.panel p {
+  color: var(--muted);
+}
+
+.panel a { color: var(--gold); }
+
+.pill {
+  display: inline-block;
+  padding: 6px 12px;
+  border: 1px solid var(--gold-dark);
+  color: var(--gold);
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+/* AGENT SELECTION */
+
+.agents { background: #111115; }
+
+.agent-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+}
+
+.agent {
+  position: relative;
+  min-height: 260px;
+  background: linear-gradient(145deg, #403624, #1b1b1d);
+  border: 1px solid #625030;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  transition: .3s;
+  overflow: hidden;
+  transition: .25s;
 }
 
-.faction:hover {
+.agent:hover {
   transform: translateY(-8px);
+  border-color: var(--gold);
 }
 
-.ghost {
-  background: linear-gradient(145deg,#eee9da,#858782);
-  color: #151515;
+.agent::before {
+  content: attr(data-number);
+  position: absolute;
+  top: 0;
+  right: 10px;
+  font-family: Anton, sans-serif;
+  font-size: 105px;
+  color: rgba(255, 255, 255, .07);
 }
 
-.shadow {
-  background: linear-gradient(145deg,#33333c,#08080a);
-  border: 1px solid #555;
-}
-
-.faction h3 {
-  font-size: 65px;
-  margin: 0;
-}
-
-.faction p {
-  font-size: 20px;
-  font-weight: 700;
-}
-
-/* DOWNLOAD */
-
-.download {
-  background: linear-gradient(135deg,#5b4927,#151516);
-  text-align: center;
-}
-
-.download-box {
-  max-width: 750px;
-  margin: auto;
-  border: 2px solid var(--gold);
-  padding: 45px 25px;
-  background: rgba(0,0,0,.4);
-}
-
-.download-box h2 {
-  font-size: 48px;
-}
-
-.download-box p {
-  font-size: 20px;
-  color: #ccc;
-}
-
-/* STATUS */
-
-.status {
-  text-align: center;
-  background: #141418;
-}
-
-.status-indicator {
-  display: inline-block;
-  padding: 18px 35px;
-  background: #252328;
-  border: 1px solid var(--gold);
+.agent-icon {
+  font-size: 43px;
   color: var(--gold);
-  font-weight: 700;
-  font-size: 20px;
+  margin-bottom: auto;
 }
 
-/* DISCORD */
+.agent h3 { margin-bottom: 0; }
+
+.agent p {
+  font-size: 16px;
+  color: var(--muted);
+  margin: 4px 0 0;
+}
+
+.agent:nth-child(2) {
+  background: linear-gradient(145deg, #51412b, #19191c);
+}
+
+.agent:nth-child(3) {
+  background: linear-gradient(145deg, #53302d, #19191c);
+}
+
+.agent:nth-child(4) {
+  background: linear-gradient(145deg, #2b4b4c, #19191c);
+}
+
+.agent:nth-child(5) {
+  background: linear-gradient(145deg, #453653, #19191c);
+}
+
+.small-note {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* SEASON GALLERY */
+
+.gallery { background: #1c1b1d; }
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.location {
+  min-height: 230px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border: 1px solid #685332;
+  position: relative;
+  overflow: hidden;
+  transition: .25s;
+}
+
+.location:hover {
+  transform: scale(1.025);
+  border-color: var(--gold);
+}
+
+.location::before {
+  content: attr(data-number);
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  font-family: Anton, sans-serif;
+  font-size: 90px;
+  color: rgba(255, 255, 255, .09);
+}
+
+.location h3 { font-size: 31px; }
+
+.location p { margin: 0; }
+
+.location:nth-child(1) {
+  background: linear-gradient(135deg, #82642d, #1d1a17);
+}
+
+.location:nth-child(2) {
+  background: linear-gradient(135deg, #465c77, #161a20);
+}
+
+.location:nth-child(3) {
+  background: linear-gradient(135deg, #554034, #1b1716);
+}
+
+.location:nth-child(4) {
+  background: linear-gradient(135deg, #34514f, #151a1b);
+}
+
+.location:nth-child(5) {
+  background: linear-gradient(135deg, #55395e, #19141c);
+}
+
+.location:nth-child(6) {
+  background: linear-gradient(135deg, #625a35, #1a1914);
+}
+
+/* NEWS */
+
+.news { background: #121216; }
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.news-card {
+  padding: 25px;
+  background: #25221e;
+  border: 1px solid #55452c;
+  border-top: 4px solid var(--gold);
+}
+
+.news-card .category {
+  color: var(--gold);
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+.news-card p { color: var(--muted); }
+
+/* LAUNCHER */
+
+.launcher {
+  background:
+    radial-gradient(circle at top, #69512a, #191819 65%);
+  text-align: center;
+}
+
+.launcher-box {
+  max-width: 850px;
+  margin: auto;
+  padding: 45px 25px;
+  border: 2px solid var(--gold);
+  background: rgba(10, 10, 12, .65);
+}
+
+.launcher-box p {
+  color: var(--muted);
+  font-size: 21px;
+}
+
+.launcher-status {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 25px 0;
+}
+
+.launcher-status span {
+  padding: 8px 12px;
+  border: 1px solid #816438;
+  color: #e7cc91;
+  font-size: 15px;
+}
+
+/* COMMUNITY */
 
 .community {
+  background: #201e1b;
   text-align: center;
-  background: #201d19;
 }
 
 .community p {
-  color: #bbb;
   font-size: 21px;
+  max-width: 700px;
+  margin: 15px auto 25px;
 }
 
 /* FOOTER */
 
 footer {
-  background: #080809;
+  padding: 35px 6%;
   text-align: center;
-  padding: 35px;
-  color: #888;
-  border-top: 2px solid var(--gold);
+  background: #09090b;
+  border-top: 2px solid var(--gold-dark);
+  color: #aaa;
 }
 
-footer strong {
-  color: var(--gold);
+footer strong { color: var(--gold); }
+
+footer p { font-size: 15px; }
+
+/* SCROLL ANIMATIONS */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .65s, transform .65s;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* MOBILE */
 
-@media(max-width:700px) {
-  nav {
-    flex-direction: column;
-    gap: 15px;
+@media (max-width: 1000px) {
+  .agent-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 
-  .links {
-    justify-content: center;
-    gap: 13px;
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .faction-grid {
-    grid-template-columns: 1fr;
-  }
-
-  section {
-    padding: 65px 6%;
+  .panel.featured {
+    grid-column: span 2;
   }
 }
 
-@media(prefers-reduced-motion:reduce) {
-  html {
-    scroll-behavior: auto;
+@media (max-width: 700px) {
+  nav {
+    position: relative;
+    flex-direction: column;
   }
 
-  *,*::before,*::after {
+  .nav-links {
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .status-strip,
+  .dashboard-grid,
+  .gallery-grid,
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .panel.featured { grid-column: auto; }
+
+  .agent-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  section { padding: 65px 5%; }
+
+  .hero { min-height: 65vh; }
+}
+
+@media (max-width: 420px) {
+  .agent-grid { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
     transition: none !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
   }
 }
 </style>
@@ -381,27 +636,37 @@ footer strong {
 <!-- NAVIGATION -->
 
 <nav>
-  <div class="logo">
+  <a class="logo" href="#home">
     PROJECT <span>IKONIK</span>
-  </div>
+  </a>
 
-  <div class="links">
-    <a href="#home">HOME</a>
-    <a href="#agency">AGENCY</a>
-    <a href="#factions">FACTIONS</a>
-    <a href="#download">DOWNLOAD</a>
+  <div class="nav-links">
+    <a href="#dashboard">AGENCY HQ</a>
+    <a href="#agents">AGENTS</a>
+    <a href="#gallery">GALLERY</a>
+    <a href="#news">NEWS</a>
+    <a href="#launcher">LAUNCHER</a>
     <a href="#community">DISCORD</a>
   </div>
 </nav>
 
-<!-- HOMEPAGE -->
+<!-- HERO -->
 
 <header class="hero" id="home">
+
+  <div class="particles" aria-hidden="true">
+    <i style="--x:8%;--y:18%;--duration:4s"></i>
+    <i style="--x:23%;--y:75%;--duration:5s"></i>
+    <i style="--x:45%;--y:20%;--duration:7s"></i>
+    <i style="--x:65%;--y:65%;--duration:6s"></i>
+    <i style="--x:87%;--y:24%;--duration:5s"></i>
+    <i style="--x:95%;--y:84%;--duration:8s"></i>
+  </div>
 
   <div class="hero-content">
 
     <div class="classified">
-      TOP SECRET // CHAPTER 02
+      TOP SECRET // CHAPTER 02 // SEASON 02 INSPIRED
     </div>
 
     <h1>
@@ -410,18 +675,24 @@ footer strong {
     </h1>
 
     <p>
-      Welcome to the Agency.
-      Your mission begins here.
+      Welcome to Agency HQ.
+      A fan-made tribute to the unforgettable
+      secret-agent era.
     </p>
 
-    <div class="buttons">
+    <div class="hero-buttons">
 
-      <a href="#download" class="btn gold">
-        DOWNLOAD LAUNCHER
+      <a class="btn" href="#dashboard">
+        ENTER THE AGENCY
       </a>
 
-      <a href="#factions" class="btn outline">
-        EXPLORE FACTIONS
+      <a
+        class="btn btn-outline"
+        href="https://discord.gg/GP2eXPNjRD"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        JOIN DISCORD ↗
       </a>
 
     </div>
@@ -430,131 +701,353 @@ footer strong {
 
 </header>
 
-<!-- AGENCY -->
+<!-- STATUS STRIP -->
 
-<section class="agency" id="agency">
+<div class="status-strip">
 
-  <h2 class="section-title">
-    WELCOME TO THE AGENCY
-  </h2>
+  <div class="status-item">
+    <strong>CHAPTER 2 · SEASON 2</strong>
+    <span>Website inspiration</span>
+  </div>
 
-  <p class="subtitle">
-    Chapter 2 Season 2 inspired experience.
-  </p>
+  <div class="status-item">
+    <strong>IN DEVELOPMENT</strong>
+    <span>Launcher and game services</span>
+  </div>
 
-  <div class="agency-box">
+  <div class="status-item">
+    <strong>COMMUNITY</strong>
+    <span>Discord invite available</span>
+  </div>
 
-    <div class="agency-symbol">◆</div>
+</div>
 
-    <h3>OPERATION IKONIK</h3>
+<main>
 
-    <p>
-      Agents wanted. Discover the secret-agent
-      atmosphere of one of Fortnite's most
-      memorable seasons.
+<!-- AGENCY DASHBOARD -->
+
+<section class="dashboard" id="dashboard">
+
+  <div class="container">
+
+    <div class="label">HQ // MISSION CONTROL</div>
+
+    <h2>THE AGENCY DASHBOARD</h2>
+
+    <p class="subtitle">
+      Your classified briefing starts here.
     </p>
 
-    <p>
-      Your mission. Your choice. Your legacy.
+    <div class="dashboard-grid">
+
+      <div class="panel featured reveal">
+
+        <div class="panel-icon">◆</div>
+
+        <h3>OPERATION IKONIK</h3>
+
+        <p>
+          Experience a website inspired by
+          the Chapter 2 Season 2 atmosphere.
+          Follow the community for confirmed
+          project announcements.
+        </p>
+
+        <span class="pill">PROJECT IN DEVELOPMENT</span>
+
+      </div>
+
+      <div class="panel reveal">
+
+        <div class="panel-icon">▣</div>
+
+        <h3>CLASSIFIED INTEL</h3>
+
+        <p>
+          Check the latest website notices
+          and development updates.
+        </p>
+
+        <a href="#news">VIEW INTEL →</a>
+
+      </div>
+
+      <div class="panel reveal">
+
+        <div class="panel-icon">⌁</div>
+
+        <h3>COMMUNITY ACCESS</h3>
+
+        <p>
+          Meet the Project Ikonik community
+          through our Discord server.
+        </p>
+
+        <a href="#community">ACCESS DISCORD →</a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- AGENT SELECTION -->
+
+<section class="agents" id="agents">
+
+  <div class="container">
+
+    <div class="label">PERSONNEL // FAN TRIBUTE</div>
+
+    <h2>AGENT SELECTION</h2>
+
+    <p class="subtitle">
+      Meet the iconic Chapter 2 Season 2 roster.
+    </p>
+
+    <div class="agent-grid">
+
+      <div class="agent reveal" data-number="01">
+        <div class="agent-icon">◆</div>
+        <h3>MIDAS</h3>
+        <p>The golden mastermind</p>
+      </div>
+
+      <div class="agent reveal" data-number="02">
+        <div class="agent-icon">▰</div>
+        <h3>BRUTUS</h3>
+        <p>The heavy hitter</p>
+      </div>
+
+      <div class="agent reveal" data-number="03">
+        <div class="agent-icon">✦</div>
+        <h3>TNTINA</h3>
+        <p>The explosive specialist</p>
+      </div>
+
+      <div class="agent reveal" data-number="04">
+        <div class="agent-icon">◈</div>
+        <h3>MEOWSCLES</h3>
+        <p>The feline powerhouse</p>
+      </div>
+
+      <div class="agent reveal" data-number="05">
+        <div class="agent-icon">✧</div>
+        <h3>SKYE</h3>
+        <p>The fearless adventurer</p>
+      </div>
+
+    </div>
+
+    <p class="small-note">
+      These are nostalgic showcase cards,
+      not playable character selections.
     </p>
 
   </div>
 
 </section>
 
-<!-- FACTIONS -->
+<!-- SEASON GALLERY -->
 
-<section class="factions" id="factions">
+<section class="gallery" id="gallery">
 
-  <h2 class="section-title">
-    CHOOSE YOUR SIDE
-  </h2>
+  <div class="container">
 
-  <p class="subtitle">
-    GHOST or SHADOW. Where does your loyalty lie?
-  </p>
+    <div class="label">ARCHIVE // SEASON GALLERY</div>
 
-  <div class="faction-grid">
+    <h2>CLASSIFIED LOCATIONS</h2>
 
-    <div class="faction ghost">
-      <h3>GHOST</h3>
+    <p class="subtitle">
+      Remember the iconic locations from the secret-agent era.
+    </p>
+
+    <div class="gallery-grid">
+
+      <div class="location reveal" data-number="01">
+        <h3>THE AGENCY</h3>
+        <p>The center of the operation</p>
+      </div>
+
+      <div class="location reveal" data-number="02">
+        <h3>THE SHARK</h3>
+        <p>A remote coastal hideout</p>
+      </div>
+
+      <div class="location reveal" data-number="03">
+        <h3>THE GROTTO</h3>
+        <p>Secrets beneath the surface</p>
+      </div>
+
+      <div class="location reveal" data-number="04">
+        <h3>THE YACHT</h3>
+        <p>Luxury meets mystery</p>
+      </div>
+
+      <div class="location reveal" data-number="05">
+        <h3>THE RIG</h3>
+        <p>Industrial island intrigue</p>
+      </div>
+
+      <div class="location reveal" data-number="06">
+        <h3>GHOST & SHADOW</h3>
+        <p>Two sides of the same mission</p>
+      </div>
+
+    </div>
+
+    <p class="small-note">
+      These are stylized CSS gallery tiles,
+      not gameplay screenshots.
+    </p>
+
+  </div>
+
+</section>
+
+<!-- NEWS -->
+
+<section class="news" id="news">
+
+  <div class="container">
+
+    <div class="label">BRIEFINGS // NEWS</div>
+
+    <h2>LATEST INTEL</h2>
+
+    <p class="subtitle">
+      Website notices and Project Ikonik information.
+    </p>
+
+    <div class="news-grid">
+
+      <article class="news-card reveal">
+
+        <div class="category">WEBSITE UPDATE</div>
+
+        <h3>AGENCY HQ THEME</h3>
+
+        <p>
+          Project Ikonik now features a
+          gold-and-black secret-agent-inspired
+          website design.
+        </p>
+
+      </article>
+
+      <article class="news-card reveal">
+
+        <div class="category">COMMUNITY</div>
+
+        <h3>DISCORD INVITE</h3>
+
+        <p>
+          Our community invite is available.
+          Use any Join Discord button to enter.
+        </p>
+
+      </article>
+
+      <article class="news-card reveal">
+
+        <div class="category">DEVELOPMENT NOTICE</div>
+
+        <h3>LAUNCHER STATUS</h3>
+
+        <p>
+          No public launcher download is linked
+          on this website yet. Follow Discord
+          for confirmed announcements.
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- LAUNCHER PAGE -->
+
+<section class="launcher" id="launcher">
+
+  <div class="container">
+
+    <div class="launcher-box reveal">
+
+      <div class="label">ACCESS TERMINAL // DOWNLOAD</div>
+
+      <h2>PROJECT IKONIK LAUNCHER</h2>
+
       <p>
-        Precision. Intelligence. Loyalty.
+        The launcher is currently
+        <strong>in development</strong>.
+        There is no downloadable installer
+        available on this page yet.
       </p>
-    </div>
 
-    <div class="faction shadow">
-      <h3>SHADOW</h3>
-      <p>
-        Stealth. Power. Control.
-      </p>
+      <div class="launcher-status">
+
+        <span>STATUS: IN DEVELOPMENT</span>
+
+        <span>DOWNLOAD: NOT AVAILABLE</span>
+
+        <span>UPDATES: DISCORD</span>
+
+      </div>
+
+      <a
+        class="btn"
+        href="https://discord.gg/GP2eXPNjRD"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        GET UPDATES ON DISCORD ↗
+      </a>
+
     </div>
 
   </div>
 
 </section>
 
-<!-- DOWNLOAD -->
-
-<section class="download" id="download">
-
-  <div class="download-box">
-
-    <h2>YOUR MISSION AWAITS</h2>
-
-    <p>
-      The Project Ikonik launcher is
-      currently in development.
-    </p>
-
-    <div class="btn gold">
-      COMING SOON
-    </div>
-
-    <p>
-      Follow our Discord for release announcements.
-    </p>
-
-  </div>
-
-</section>
-
-<!-- STATUS -->
-
-<section class="status" id="status">
-
-  <h2 class="section-title">
-    OPERATION STATUS
-  </h2>
-
-  <p class="subtitle">
-    Project Ikonik development status.
-  </p>
-
-  <div class="status-indicator">
-    ● DISCORD COMMUNITY LIVE
-  </div>
-
-</section>
-
-<!-- COMMUNITY -->
+<!-- COMMUNITY HUB -->
 
 <section class="community" id="community">
 
-  <h2 class="section-title">
-    JOIN THE AGENCY
-  </h2>
+  <div class="container reveal">
 
-  <p>
-    Join the Project Ikonik community.
-    Receive announcements and development updates.
-  </p>
+    <div class="label">SECURE CHANNEL // COMMUNITY</div>
 
-  <a href="#" id="discord" class="btn gold">
-    JOIN DISCORD
-  </a>
+    <h2>JOIN THE AGENCY</h2>
+
+    <p>
+      Connect with the Project Ikonik community,
+      follow development announcements,
+      and share your Chapter 2 Season 2 nostalgia.
+    </p>
+
+    <a
+      class="btn"
+      href="https://discord.gg/GP2eXPNjRD"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      JOIN PROJECT IKONIK DISCORD ↗
+    </a>
+
+    <p class="small-note">
+      Discord opens in a new tab.
+    </p>
+
+  </div>
 
 </section>
+
+</main>
 
 <!-- FOOTER -->
 
@@ -563,32 +1056,58 @@ footer strong {
   <strong>PROJECT IKONIK</strong>
 
   <p>
-    An independent, unofficial fan project.
-    Not affiliated with or endorsed by Epic Games.
+    Independent, unofficial fan project.
+    Not affiliated with, sponsored by,
+    or endorsed by Epic Games.
+  </p>
+
+  <p>
+    Fortnite and associated character and location
+    names belong to their respective owners.
   </p>
 
   <p>© 2026 Project Ikonik.</p>
 
 </footer>
 
+<!-- ANIMATIONS -->
+
 <script>
-  // Replace this with your Discord invite.
-  
-const discordURL = "https://discord.gg/GP2eXPNjRD";
+(function () {
 
+  const elements =
+    document.querySelectorAll(".reveal");
 
-  const button = document.getElementById("discord");
-
-  if (discordURL) {
-    button.href = discordURL;
-    button.target = "_blank";
-    button.rel = "noopener noreferrer";
-  } else {
-    button.addEventListener("click", function(e) {
-      e.preventDefault();
-      alert("Discord invite coming soon!");
+  if (!("IntersectionObserver" in window)) {
+    elements.forEach(function (element) {
+      element.classList.add("visible");
     });
+    return;
   }
+
+  const observer = new IntersectionObserver(
+    function (entries) {
+
+      entries.forEach(function (entry) {
+
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+
+      });
+
+    },
+    {
+      threshold: 0.08
+    }
+  );
+
+  elements.forEach(function (element) {
+    observer.observe(element);
+  });
+
+})();
 </script>
 
 </body>
