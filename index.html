@@ -1,0 +1,1297 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101014">
+<meta name="description" content="Project Ikonik — an unofficial Chapter 2 Season 2-inspired fan community.">
+
+<title>Project Ikonik | Agency HQ</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --gold: #f6cf74;
+  --gold-dark: #a77a36;
+  --bg: #101014;
+  --panel: #1c1d23;
+  --white: #fff9eb;
+  --muted: #bdb9b0;
+  --line: #625239;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--white);
+  font-family: Rajdhani, Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  overflow-x: hidden;
+}
+
+a { color: inherit; }
+button { font: inherit; }
+
+h1, h2, h3, .brand, .btn, .display {
+  font-family: Anton, Impact, sans-serif;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+h2 {
+  font-size: clamp(38px, 5.7vw, 70px);
+  line-height: 1.08;
+  margin: 8px 0 14px;
+}
+
+h3 {
+  font-size: 28px;
+  margin: 10px 0;
+}
+
+p { line-height: 1.5; }
+
+.muted { color: var(--muted); }
+
+.eyebrow {
+  color: var(--gold);
+  font-size: 13px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.wrap {
+  max-width: 1260px;
+  margin: auto;
+}
+
+section {
+  padding: 95px 6%;
+  scroll-margin-top: 85px;
+}
+
+/* BUTTONS */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 54px;
+  padding: 11px 25px;
+  border: 2px solid var(--gold);
+  background: var(--gold);
+  color: #15120e;
+  text-decoration: none;
+  font-size: 20px;
+  cursor: pointer;
+  transition: .2s;
+  box-shadow: 5px 5px 0 #6f542b;
+}
+
+.btn:hover {
+  transform: translate(-2px, -3px);
+  filter: brightness(1.1);
+}
+
+.btn.alt {
+  background: #0e1019;
+  color: var(--gold);
+  box-shadow: 5px 5px 0 #43351e;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid white;
+  outline-offset: 4px;
+}
+
+/* TOP BAR */
+
+.topbar {
+  background: var(--gold);
+  color: #17120a;
+  text-align: center;
+  padding: 6px 12px;
+  font-size: 13px;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+/* NAVIGATION */
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 13px 6%;
+  background: rgba(11, 13, 19, .97);
+  border-bottom: 1px solid #80663a;
+  backdrop-filter: blur(12px);
+}
+
+.brand {
+  text-decoration: none;
+  font-size: 29px;
+  font-style: italic;
+  white-space: nowrap;
+}
+
+.brand span { color: var(--gold); }
+
+.nav-links {
+  display: flex;
+  gap: 21px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.nav-links a:hover { color: var(--gold); }
+
+.nav-links .nav-discord {
+  padding: 8px 13px;
+  background: var(--gold);
+  color: #17120b;
+  font-weight: 700;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 88vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  isolation: isolate;
+  padding: 90px 6%;
+
+  background:
+    radial-gradient(
+      ellipse at 70% 48%,
+      rgba(246, 207, 116, .34),
+      transparent 36%
+    ),
+    linear-gradient(
+      120deg,
+      #090b12 10%,
+      #24211e 55%,
+      #614a28 100%
+    );
+}
+
+.hero::before {
+  content: "02";
+  position: absolute;
+  right: -1%;
+  top: -17%;
+  font-family: Anton, sans-serif;
+  font-size: min(60vw, 800px);
+  color: rgba(255, 255, 255, .035);
+  z-index: -1;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 580px;
+  height: 580px;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 1px solid rgba(246, 207, 116, .28);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 55px rgba(246, 207, 116, .025),
+    0 0 0 110px rgba(246, 207, 116, .025);
+  z-index: -1;
+}
+
+.hero-content {
+  max-width: 820px;
+  position: relative;
+  z-index: 2;
+}
+
+.classified {
+  display: inline-block;
+  padding: 9px 17px;
+  border: 1px solid var(--gold);
+  background: rgba(0, 0, 0, .3);
+  color: var(--gold);
+  font-size: 14px;
+  letter-spacing: 3px;
+}
+
+.hero h1 {
+  font-size: clamp(75px, 13vw, 170px);
+  font-style: italic;
+  line-height: .94;
+  margin: 25px 0;
+  text-shadow: 8px 9px rgba(0, 0, 0, .5);
+}
+
+.hero h1 span { color: var(--gold); }
+
+.hero-description {
+  max-width: 590px;
+  font-size: 25px;
+  color: #e4dac4;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+
+.hero-bottom {
+  margin-top: 60px;
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: var(--gold);
+}
+
+/* PARTICLES */
+
+.particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.particles i {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--gold);
+  opacity: .5;
+  animation: particle 5s ease-in-out infinite alternate;
+  animation-delay: var(--delay);
+}
+
+@keyframes particle {
+  to {
+    transform: translate(30px, -60px);
+    opacity: .1;
+  }
+}
+
+/* STATUS */
+
+.status-bar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: #18191e;
+  border-top: 2px solid var(--gold-dark);
+  border-bottom: 2px solid var(--gold-dark);
+}
+
+.status-box {
+  padding: 23px;
+  text-align: center;
+  border-right: 1px solid #50452f;
+}
+
+.status-box:last-child { border-right: 0; }
+
+.status-box strong {
+  display: block;
+  color: var(--gold);
+  font-family: Anton, sans-serif;
+  font-size: 24px;
+}
+
+.status-box span {
+  font-size: 15px;
+  color: var(--muted);
+}
+
+/* DASHBOARD */
+
+.dashboard {
+  background:
+    radial-gradient(circle at top right, #393023, transparent 50%),
+    #15161a;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 19px;
+  margin-top: 35px;
+}
+
+.dashboard-card {
+  position: relative;
+  min-height: 260px;
+  padding: 28px;
+  background: linear-gradient(145deg, #292723, #191a20);
+  border: 1px solid var(--line);
+  overflow: hidden;
+  transition: .25s;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--gold);
+}
+
+.dashboard-card.featured {
+  background: linear-gradient(145deg, #65502e, #1a1b20 70%);
+}
+
+.dashboard-card .number {
+  position: absolute;
+  top: -25px;
+  right: 12px;
+  font-family: Anton, sans-serif;
+  font-size: 130px;
+  color: rgba(255, 255, 255, .055);
+}
+
+.dashboard-card .symbol {
+  color: var(--gold);
+  font-size: 38px;
+}
+
+.dashboard-card p { color: var(--muted); }
+
+.dashboard-card a {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+.status-tag {
+  display: inline-block;
+  padding: 7px 12px;
+  border: 1px solid var(--gold-dark);
+  color: var(--gold);
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+
+/* AGENTS */
+
+.agents { background: #101116; }
+
+.agent-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-top: 35px;
+}
+
+.agent {
+  min-height: 350px;
+  position: relative;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  border: 1px solid #75603b;
+  background:
+    radial-gradient(circle at 50% 35%, var(--tone), transparent 70%),
+    #202126;
+  transition: .3s;
+}
+
+.agent:hover {
+  transform: translateY(-9px);
+  border-color: var(--gold);
+  box-shadow: 0 15px 35px #0008;
+}
+
+.agent::before {
+  content: attr(data-id);
+  position: absolute;
+  top: 0;
+  right: 12px;
+  font-family: Anton, sans-serif;
+  font-size: 110px;
+  color: rgba(255, 255, 255, .06);
+}
+
+.agent-icon {
+  margin: auto;
+  color: var(--gold);
+  font-family: Anton, sans-serif;
+  font-size: 105px;
+  text-shadow: 0 8px 20px #0008;
+  transition: .3s;
+}
+
+.agent:hover .agent-icon {
+  transform: scale(1.15) rotate(-5deg);
+}
+
+.agent h3 {
+  font-size: 31px;
+  margin-bottom: 0;
+}
+
+.agent p {
+  margin: 0;
+  font-size: 16px;
+  color: var(--muted);
+}
+
+/* GHOST VS SHADOW */
+
+.factions {
+  background: #191a1e;
+}
+
+.faction-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+  margin-top: 35px;
+}
+
+.faction {
+  min-height: 300px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: .3s;
+}
+
+.faction:hover { transform: translateY(-6px); }
+
+.faction.ghost {
+  color: #171717;
+  background: linear-gradient(135deg, #fffaf0, #999e9f);
+}
+
+.faction.shadow {
+  background: linear-gradient(135deg, #373946, #08090e);
+  border: 1px solid #676a75;
+}
+
+.faction h3 {
+  font-size: 75px;
+  margin: 0;
+}
+
+.faction p {
+  margin: 0;
+  font-size: 21px;
+}
+
+/* LOCATIONS */
+
+.gallery {
+  background:
+    radial-gradient(circle at top left, #353024, transparent 50%),
+    #131418;
+}
+
+.location-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 19px;
+  margin-top: 35px;
+}
+
+.location {
+  position: relative;
+  min-height: 270px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  border: 1px solid #695539;
+  background: var(--gradient);
+  transition: .3s;
+}
+
+.location:hover {
+  transform: translateY(-7px);
+  border-color: var(--gold);
+}
+
+.location::before {
+  content: attr(data-id);
+  position: absolute;
+  top: -10px;
+  right: 12px;
+  font-family: Anton, sans-serif;
+  font-size: 115px;
+  color: rgba(255, 255, 255, .08);
+}
+
+.location h3 {
+  font-size: 34px;
+  margin: 0;
+}
+
+.location p { margin: 0; }
+
+/* NEWS */
+
+.news { background: #101116; }
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 19px;
+  margin-top: 35px;
+}
+
+.news-card {
+  background: #202127;
+  border: 1px solid #4c4234;
+  border-top: 4px solid var(--gold);
+  padding: 27px;
+  transition: .25s;
+}
+
+.news-card:hover {
+  transform: translateY(-5px);
+}
+
+.news-card .category {
+  font-size: 13px;
+  color: var(--gold);
+  letter-spacing: 3px;
+}
+
+.news-card p { color: var(--muted); }
+
+/* LAUNCHER */
+
+.launcher {
+  text-align: center;
+  background:
+    radial-gradient(circle at top, #73552b, transparent 65%),
+    #151519;
+}
+
+.launcher-panel {
+  max-width: 850px;
+  margin: auto;
+  padding: 50px 30px;
+  border: 2px solid var(--gold);
+  background: rgba(10, 11, 16, .78);
+  box-shadow: 0 25px 70px #0007;
+}
+
+.launcher-panel p {
+  font-size: 21px;
+  color: var(--muted);
+}
+
+.launcher-details {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 30px 0;
+}
+
+.launcher-details span {
+  padding: 8px 13px;
+  border: 1px solid #876c3f;
+  color: var(--gold);
+  font-size: 14px;
+}
+
+/* COMMUNITY */
+
+.community {
+  text-align: center;
+  background: linear-gradient(145deg, #302719, #121317);
+}
+
+.community p {
+  max-width: 700px;
+  margin: 15px auto 30px;
+  font-size: 22px;
+  color: var(--muted);
+}
+
+/* FOOTER */
+
+footer {
+  padding: 40px 6%;
+  text-align: center;
+  background: #08090d;
+  border-top: 2px solid var(--gold-dark);
+  color: var(--muted);
+  font-size: 15px;
+}
+
+footer strong {
+  color: var(--gold);
+  font-family: Anton, sans-serif;
+  font-size: 25px;
+}
+
+/* SCROLL REVEAL */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity .7s, transform .7s;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* MOBILE */
+
+@media (max-width: 1050px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard-card.featured {
+    grid-column: span 2;
+  }
+
+  .agent-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 750px) {
+  nav {
+    position: relative;
+    flex-direction: column;
+  }
+
+  .nav-links {
+    justify-content: center;
+    gap: 13px;
+  }
+
+  .hero {
+    min-height: 75vh;
+  }
+
+  .hero::after { display: none; }
+
+  .status-bar,
+  .dashboard-grid,
+  .faction-grid,
+  .location-grid,
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-card.featured {
+    grid-column: auto;
+  }
+
+  .status-box {
+    border-right: 0;
+    border-bottom: 1px solid #50452f;
+  }
+
+  .agent-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  section { padding: 70px 5%; }
+}
+
+@media (max-width: 430px) {
+  .agent-grid { grid-template-columns: 1fr; }
+
+  .hero h1 {
+    font-size: 69px;
+  }
+
+  .faction h3 {
+    font-size: 58px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+  PROJECT IKONIK // CLASSIFIED ACCESS // UNOFFICIAL FAN PROJECT
+</div>
+
+<nav>
+  <a class="brand" href="#home">
+    PROJECT <span>IKONIK</span>
+  </a>
+
+  <div class="nav-links">
+    <a href="#dashboard">HQ</a>
+    <a href="#agents">AGENTS</a>
+    <a href="#factions">FACTIONS</a>
+    <a href="#gallery">GALLERY</a>
+    <a href="#news">NEWS</a>
+    <a href="#launcher">LAUNCHER</a>
+    <a
+      class="nav-discord"
+      href="https://discord.gg/GP2eXPNjRD"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      DISCORD ↗
+    </a>
+  </div>
+</nav>
+
+<header class="hero" id="home">
+
+  <div class="particles" aria-hidden="true">
+    <i style="--x:10%;--y:20%;--delay:0s"></i>
+    <i style="--x:25%;--y:70%;--delay:1s"></i>
+    <i style="--x:45%;--y:35%;--delay:2s"></i>
+    <i style="--x:60%;--y:75%;--delay:3s"></i>
+    <i style="--x:80%;--y:25%;--delay:1.5s"></i>
+    <i style="--x:95%;--y:60%;--delay:2.5s"></i>
+  </div>
+
+  <div class="hero-content">
+
+    <div class="classified">
+      TOP SECRET // CHAPTER 02 // SEASON 02 INSPIRED
+    </div>
+
+    <h1>
+      PROJECT<br>
+      <span>IKONIK</span>
+    </h1>
+
+    <p class="hero-description">
+      Welcome to the Agency.
+      Step into a world inspired by the legendary
+      secret-agent era.
+    </p>
+
+    <div class="hero-actions">
+
+      <a class="btn" href="#dashboard">
+        ENTER THE AGENCY →
+      </a>
+
+      <a
+        class="btn alt"
+        href="https://discord.gg/GP2eXPNjRD"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        JOIN DISCORD ↗
+      </a>
+
+    </div>
+
+    <div class="hero-bottom">
+      <span>◆ OPERATION IKONIK</span>
+      <span>◆ COMMUNITY ACCESS</span>
+      <span>◆ CLASSIFIED ARCHIVES</span>
+    </div>
+
+  </div>
+
+</header>
+
+<div class="status-bar">
+
+  <div class="status-box">
+    <strong>CHAPTER 2 · SEASON 2</strong>
+    <span>Website inspiration</span>
+  </div>
+
+  <div class="status-box">
+    <strong>IN DEVELOPMENT</strong>
+    <span>Launcher and game services</span>
+  </div>
+
+  <div class="status-box">
+    <strong>DISCORD AVAILABLE</strong>
+    <span>Join the community</span>
+  </div>
+
+</div>
+
+<main>
+
+<section class="dashboard" id="dashboard">
+
+  <div class="wrap">
+
+    <div class="eyebrow">CLASSIFIED // MISSION CONTROL</div>
+
+    <h2>THE AGENCY HQ</h2>
+
+    <p class="muted">
+      Your central hub for Project Ikonik.
+    </p>
+
+    <div class="dashboard-grid">
+
+      <article class="dashboard-card featured reveal">
+
+        <span class="number">01</span>
+
+        <div class="symbol">◆</div>
+
+        <h3>OPERATION IKONIK</h3>
+
+        <p>
+          An unofficial Chapter 2 Season 2-inspired
+          community project.
+          Follow our announcements for development progress.
+        </p>
+
+        <span class="status-tag">
+          PROJECT IN DEVELOPMENT
+        </span>
+
+      </article>
+
+      <article class="dashboard-card reveal">
+
+        <span class="number">02</span>
+
+        <div class="symbol">▣</div>
+
+        <h3>CLASSIFIED INTEL</h3>
+
+        <p>
+          Access website notices and development information.
+        </p>
+
+        <a href="#news">READ BRIEFINGS →</a>
+
+      </article>
+
+      <article class="dashboard-card reveal">
+
+        <span class="number">03</span>
+
+        <div class="symbol">⌁</div>
+
+        <h3>COMMUNITY ACCESS</h3>
+
+        <p>
+          Meet other fans and follow Project Ikonik on Discord.
+        </p>
+
+        <a href="#community">ACCESS COMMUNITY →</a>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="agents" id="agents">
+
+  <div class="wrap">
+
+    <div class="eyebrow">PERSONNEL // AGENT FILES</div>
+
+    <h2>MEET THE AGENTS</h2>
+
+    <p class="muted">
+      A tribute to the iconic Chapter 2 Season 2 roster.
+    </p>
+
+    <div class="agent-grid">
+
+      <article
+        class="agent reveal"
+        data-id="01"
+        style="--tone:#987336"
+      >
+        <div class="agent-icon">◆</div>
+        <h3>MIDAS</h3>
+        <p>The golden mastermind</p>
+      </article>
+
+      <article
+        class="agent reveal"
+        data-id="02"
+        style="--tone:#65533d"
+      >
+        <div class="agent-icon">▰</div>
+        <h3>BRUTUS</h3>
+        <p>The heavy hitter</p>
+      </article>
+
+      <article
+        class="agent reveal"
+        data-id="03"
+        style="--tone:#884739"
+      >
+        <div class="agent-icon">✦</div>
+        <h3>TNTINA</h3>
+        <p>The explosive specialist</p>
+      </article>
+
+      <article
+        class="agent reveal"
+        data-id="04"
+        style="--tone:#365b61"
+      >
+        <div class="agent-icon">◈</div>
+        <h3>MEOWSCLES</h3>
+        <p>The feline powerhouse</p>
+      </article>
+
+      <article
+        class="agent reveal"
+        data-id="05"
+        style="--tone:#554c78"
+      >
+        <div class="agent-icon">✧</div>
+        <h3>SKYE</h3>
+        <p>The fearless adventurer</p>
+      </article>
+
+    </div>
+
+    <p class="muted" style="font-size:14px">
+      These are nostalgic showcase cards,
+      not playable character selections.
+    </p>
+
+  </div>
+
+</section>
+
+<section class="factions" id="factions">
+
+  <div class="wrap">
+
+    <div class="eyebrow">CLASSIFIED // FACTIONS</div>
+
+    <h2>CHOOSE YOUR SIDE</h2>
+
+    <p class="muted">
+      Two legendary factions. One unforgettable season.
+    </p>
+
+    <div class="faction-grid">
+
+      <div class="faction ghost reveal">
+        <h3>GHOST</h3>
+        <p>Precision. Intelligence. Loyalty.</p>
+      </div>
+
+      <div class="faction shadow reveal">
+        <h3>SHADOW</h3>
+        <p>Stealth. Power. Control.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="gallery" id="gallery">
+
+  <div class="wrap">
+
+    <div class="eyebrow">ARCHIVES // CLASSIFIED LOCATIONS</div>
+
+    <h2>EXPLORE THE SEASON</h2>
+
+    <p class="muted">
+      Revisit the atmosphere of the legendary spy-era map.
+    </p>
+
+    <div class="location-grid">
+
+      <article
+        class="location reveal"
+        data-id="01"
+        style="--gradient:linear-gradient(135deg,#92713c,#242321)"
+      >
+        <h3>THE AGENCY</h3>
+        <p>The center of the operation</p>
+      </article>
+
+      <article
+        class="location reveal"
+        data-id="02"
+        style="--gradient:linear-gradient(135deg,#426a86,#1c2530)"
+      >
+        <h3>THE SHARK</h3>
+        <p>A remote coastal hideout</p>
+      </article>
+
+      <article
+        class="location reveal"
+        data-id="03"
+        style="--gradient:linear-gradient(135deg,#665044,#211b1b)"
+      >
+        <h3>THE GROTTO</h3>
+        <p>Secrets beneath the surface</p>
+      </article>
+
+      <article
+        class="location reveal"
+        data-id="04"
+        style="--gradient:linear-gradient(135deg,#3d7478,#172629)"
+      >
+        <h3>THE YACHT</h3>
+        <p>Luxury meets mystery</p>
+      </article>
+
+      <article
+        class="location reveal"
+        data-id="05"
+        style="--gradient:linear-gradient(135deg,#75516a,#231b29)"
+      >
+        <h3>THE RIG</h3>
+        <p>Industrial island intrigue</p>
+      </article>
+
+      <article
+        class="location reveal"
+        data-id="06"
+        style="--gradient:linear-gradient(135deg,#a18a53,#26241d)"
+      >
+        <h3>THE SECRET WAR</h3>
+        <p>Ghost versus Shadow</p>
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="news" id="news">
+
+  <div class="wrap">
+
+    <div class="eyebrow">CLASSIFIED // ANNOUNCEMENTS</div>
+
+    <h2>LATEST INTEL</h2>
+
+    <p class="muted">
+      Official Project Ikonik website notices.
+    </p>
+
+    <div class="news-grid">
+
+      <article class="news-card reveal">
+
+        <div class="category">WEBSITE UPDATE</div>
+
+        <h3>WELCOME TO AGENCY HQ</h3>
+
+        <p>
+          Project Ikonik has a refreshed
+          Chapter 2 Season 2-inspired website
+          with a gold-and-black visual identity.
+        </p>
+
+      </article>
+
+      <article class="news-card reveal">
+
+        <div class="category">COMMUNITY</div>
+
+        <h3>JOIN THE DISCORD</h3>
+
+        <p>
+          Our Discord invite is available.
+          Meet the community and follow
+          future project announcements.
+        </p>
+
+      </article>
+
+      <article class="news-card reveal">
+
+        <div class="category">DEVELOPMENT</div>
+
+        <h3>LAUNCHER INFORMATION</h3>
+
+        <p>
+          There is no public launcher download
+          linked on this website yet.
+          Watch Discord for confirmed updates.
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="launcher" id="launcher">
+
+  <div class="launcher-panel reveal">
+
+    <div class="eyebrow">ACCESS TERMINAL // LAUNCHER</div>
+
+    <h2>YOUR MISSION AWAITS</h2>
+
+    <p>
+      The Project Ikonik launcher is currently
+      <strong>in development</strong>.
+      There is no installer available to download here yet.
+    </p>
+
+    <div class="launcher-details">
+      <span>STATUS: IN DEVELOPMENT</span>
+      <span>DOWNLOAD: NOT AVAILABLE</span>
+      <span>UPDATES: DISCORD</span>
+    </div>
+
+    <a
+      class="btn"
+      href="https://discord.gg/GP2eXPNjRD"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      GET UPDATES ON DISCORD ↗
+    </a>
+
+  </div>
+
+</section>
+
+<section class="community" id="community">
+
+  <div class="wrap reveal">
+
+    <div class="eyebrow">SECURE CHANNEL // COMMUNITY</div>
+
+    <h2>JOIN THE AGENCY</h2>
+
+    <p>
+      Connect with the Project Ikonik community,
+      follow development announcements,
+      and share your Chapter 2 Season 2 nostalgia.
+    </p>
+
+    <a
+      class="btn"
+      href="https://discord.gg/GP2eXPNjRD"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      JOIN PROJECT IKONIK DISCORD ↗
+    </a>
+
+  </div>
+
+</section>
+
+</main>
+
+<footer>
+
+  <strong>PROJECT IKONIK</strong>
+
+  <p>
+    Independent, unofficial fan project.
+    Not affiliated with, sponsored by,
+    or endorsed by Epic Games.
+  </p>
+
+  <p>
+    Fortnite-related character and location names
+    belong to their respective owners.
+  </p>
+
+  <p>© 2026 Project Ikonik.</p>
+
+</footer>
+
+<script>
+(function () {
+
+  const cards = document.querySelectorAll(".reveal");
+
+  if (!("IntersectionObserver" in window)) {
+    cards.forEach(card => card.classList.add("visible"));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    entries => {
+
+      entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+
+      });
+
+    },
+    { threshold: 0.08 }
+  );
+
+  cards.forEach(card => observer.observe(card));
+
+})();
+</script>
+
+</body>
+</html>
