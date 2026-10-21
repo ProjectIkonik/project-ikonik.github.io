@@ -2,82 +2,601 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Project Ikonik</title>
-  <style>
-    body {
-      margin: 0;
-      background: #0b0b0f;
-      color: white;
-      font-family: Arial, sans-serif;
-      text-align: center;
-    }
-    header {
-      background: #16161c;
-      padding: 25px;
-      color: #ff3045;
-      font-size: 28px;
-      font-weight: bold;
-    }
-    main {
-      padding: 100px 20px;
-    }
-    h1 {
-      font-size: 48px;
-    }
-    span {
-      color: #ff3045;
-    }
-    p {
-      color: #aaa;
-      font-size: 18px;
-    }
-    a.button {
-      display: inline-block;
-      background: #d91e36;
-      color: white;
-      padding: 15px 30px;
-      margin: 10px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    a.button:hover {
-      background: #ff3045;
-    }
-    footer {
-      padding: 30px;
-      color: #777;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Project Ikonik | OG Experience</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+:root {
+  --yellow: #ffdc24;
+  --blue: #0099ff;
+  --dark: #071426;
+  --white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--dark);
+  color: white;
+  font-family: 'Rajdhani', sans-serif;
+  overflow-x: hidden;
+}
+
+/* NAVIGATION */
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 7%;
+  background: rgba(5, 14, 31, .95);
+  border-bottom: 3px solid #168bdb;
+  backdrop-filter: blur(12px);
+}
+
+.logo {
+  font-family: Anton, sans-serif;
+  font-size: 29px;
+  letter-spacing: 2px;
+  font-style: italic;
+}
+
+.logo span {
+  color: var(--yellow);
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 17px;
+  transition: .2s;
+}
+
+.nav-links a:hover {
+  color: var(--yellow);
+}
+
+/* HERO */
+
+.hero {
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  padding: 90px 20px;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      ellipse at 50% 80%,
+      rgba(30, 159, 255, .55),
+      transparent 60%
+    ),
+    linear-gradient(
+      145deg,
+      #071426 0%,
+      #103d77 45%,
+      #4b287f 100%
+    );
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 550px;
+  height: 550px;
+  border-radius: 50%;
+  background: rgba(65, 174, 255, .15);
+  filter: blur(80px);
+  animation: float 7s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-35px);
+  }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 8px 20px;
+  background: #ffdc24;
+  color: #101010;
+  font-weight: 700;
+  transform: skew(-8deg);
+  letter-spacing: 2px;
+}
+
+.hero h1 {
+  font-family: Anton, sans-serif;
+  font-size: clamp(65px, 12vw, 145px);
+  font-style: italic;
+  line-height: 1;
+  margin: 25px 0;
+  text-shadow: 7px 8px 0 rgba(0,0,0,.35);
+}
+
+.hero h1 span {
+  color: var(--yellow);
+}
+
+.hero p {
+  font-size: 24px;
+  font-weight: 600;
+  color: #e0edff;
+  margin-bottom: 35px;
+}
+
+/* BUTTONS */
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 16px 35px;
+  text-decoration: none;
+  font-family: Anton, sans-serif;
+  font-size: 22px;
+  letter-spacing: 1px;
+  transform: skew(-5deg);
+  transition: .25s;
+  cursor: pointer;
+  border: none;
+}
+
+.btn:hover {
+  transform: skew(-5deg) scale(1.06);
+  filter: brightness(1.12);
+}
+
+.btn-yellow {
+  background: var(--yellow);
+  color: #121212;
+  box-shadow: 5px 5px 0 #bb8e00;
+}
+
+.btn-blue {
+  background: #168bdb;
+  color: white;
+  box-shadow: 5px 5px 0 #064b88;
+}
+
+/* SECTIONS */
+
+section {
+  padding: 85px 8%;
+}
+
+.section-title {
+  font-family: Anton, sans-serif;
+  font-size: clamp(35px, 6vw, 55px);
+  text-align: center;
+  font-style: italic;
+  margin: 0 0 15px;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: #b8cce6;
+  font-size: 20px;
+  margin-bottom: 45px;
+}
+
+/* SEASONS */
+
+.seasons {
+  background: linear-gradient(180deg, #071426, #102a50);
+}
+
+.season-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  max-width: 1300px;
+  margin: auto;
+}
+
+.season-card {
+  min-height: 310px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border: 2px solid rgba(255,255,255,.15);
+  transition: .3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.season-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--yellow);
+}
+
+.s3 {
+  background: linear-gradient(145deg, #172c79, #833fc1);
+}
+
+.s4 {
+  background: linear-gradient(145deg, #cc5424, #471858);
+}
+
+.s5 {
+  background: linear-gradient(145deg, #a64fba, #d99d43);
+}
+
+.s7 {
+  background: linear-gradient(145deg, #2474b5, #a0e5ff);
+}
+
+.season-number {
+  font-family: Anton, sans-serif;
+  font-size: 95px;
+  opacity: .25;
+  position: absolute;
+  right: 15px;
+  top: 0;
+}
+
+.season-card h3 {
+  font-family: Anton, sans-serif;
+  font-size: 32px;
+  margin: 0;
+}
+
+.season-card p {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+/* DOWNLOAD */
+
+.download {
+  background: linear-gradient(135deg, #155da0, #09234c);
+  text-align: center;
+}
+
+.download-box {
+  max-width: 750px;
+  margin: auto;
+  padding: 45px 25px;
+  background: rgba(0,0,0,.25);
+  border: 2px solid rgba(255,255,255,.15);
+}
+
+.download-box h2 {
+  font-family: Anton, sans-serif;
+  font-size: 45px;
+}
+
+.download-box p {
+  font-size: 20px;
+  color: #d2e3f5;
+}
+
+/* STATUS */
+
+.status {
+  background: #08172c;
+  text-align: center;
+}
+
+.status-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: #142d49;
+  padding: 18px 35px;
+  border: 1px solid #315477;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background: #ffbf38;
+  border-radius: 50%;
+}
+
+/* COMMUNITY */
+
+.community {
+  text-align: center;
+  background: linear-gradient(145deg, #25215e, #0a2345);
+}
+
+.community p {
+  font-size: 21px;
+  color: #d3dcf4;
+}
+
+/* FOOTER */
+
+footer {
+  background: #040b15;
+  padding: 35px 20px;
+  text-align: center;
+  color: #879ab0;
+  font-size: 15px;
+}
+
+footer strong {
+  color: white;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 950px) {
+  .season-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media(max-width: 600px) {
+  nav {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .nav-links {
+    gap: 13px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+  }
+
+  .season-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero p {
+    font-size: 19px;
+  }
+
+  section {
+    padding: 65px 6%;
+  }
+}
+
+@media(prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
+</style>
 </head>
+
 <body>
 
-<header>PROJECT IKONIK</header>
+<!-- NAVIGATION -->
 
-<main>
-  <h1>WELCOME TO <span>IKONIK</span></h1>
+<nav>
+  <div class="logo">
+    PROJECT <span>IKONIK</span>
+  </div>
 
-  <p>Your community. Your experience. Your legacy.</p>
+  <div class="nav-links">
+    <a href="#home">HOME</a>
+    <a href="#seasons">SEASONS</a>
+    <a href="#download">DOWNLOAD</a>
+    <a href="#status">STATUS</a>
+    <a href="#community">DISCORD</a>
+  </div>
+</nav>
 
-  <a class="button" href="#downloads">DOWNLOAD LAUNCHER</a>
-  <a class="button" href="#community">OUR COMMUNITY</a>
+<!-- HERO -->
 
-  <section id="downloads">
-    <h2>Launcher Coming Soon</h2>
-    <p>Our launcher is currently in development.</p>
-  </section>
+<header class="hero" id="home">
+  <div class="hero-content">
 
-  <section id="community">
-    <h2>Join Our Community</h2>
-    <p>Stay updated through our Discord server.</p>
-  </section>
-</main>
+    <div class="tag">
+      THE CLASSIC EXPERIENCE
+    </div>
+
+    <h1>
+      PROJECT<br>
+      <span>IKONIK</span>
+    </h1>
+
+    <p>
+      Relive the atmosphere of the early seasons.
+      Your community. Your legacy.
+    </p>
+
+    <div class="buttons">
+      <a href="#download" class="btn btn-yellow">
+        DOWNLOAD LAUNCHER
+      </a>
+
+      <a href="#community" class="btn btn-blue">
+        JOIN COMMUNITY
+      </a>
+    </div>
+
+  </div>
+</header>
+
+<!-- SEASONS -->
+
+<section class="seasons" id="seasons">
+
+  <h2 class="section-title">
+    EXPLORE THE OG ERAS
+  </h2>
+
+  <p class="section-subtitle">
+    A tribute to the unforgettable Chapter 1 atmosphere.
+  </p>
+
+  <div class="season-grid">
+
+    <div class="season-card s3">
+      <span class="season-number">03</span>
+      <h3>SEASON 3</h3>
+      <p>The space era.</p>
+    </div>
+
+    <div class="season-card s4">
+      <span class="season-number">04</span>
+      <h3>SEASON 4</h3>
+      <p>Heroes rise.</p>
+    </div>
+
+    <div class="season-card s5">
+      <span class="season-number">05</span>
+      <h3>SEASON 5</h3>
+      <p>Worlds collide.</p>
+    </div>
+
+    <div class="season-card s7">
+      <span class="season-number">07</span>
+      <h3>SEASON 7</h3>
+      <p>A frozen adventure.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- DOWNLOAD -->
+
+<section class="download" id="download">
+
+  <div class="download-box">
+
+    <h2>READY TO DROP IN?</h2>
+
+    <p>
+      The Project Ikonik launcher is currently
+      being developed.
+    </p>
+
+    <span class="btn btn-yellow">
+      COMING SOON
+    </span>
+
+    <p>
+      Join our community for development updates.
+    </p>
+
+  </div>
+</section>
+
+<!-- SERVER STATUS -->
+
+<section class="status" id="status">
+
+  <h2 class="section-title">
+    SERVER STATUS
+  </h2>
+
+  <p class="section-subtitle">
+    Project Ikonik infrastructure.
+  </p>
+
+  <div class="status-box">
+    <span class="dot"></span>
+    IN DEVELOPMENT
+  </div>
+
+</section>
+
+<!-- COMMUNITY -->
+
+<section class="community" id="community">
+
+  <h2 class="section-title">
+    JOIN THE COMMUNITY
+  </h2>
+
+  <p>
+    Meet other players and follow Project Ikonik's progress.
+  </p>
+
+  <!-- Replace # with your Discord invite link -->
+
+  <a
+    href="#"
+    class="btn btn-blue"
+    id="discord-link"
+  >
+    JOIN DISCORD
+  </a>
+
+</section>
+
+<!-- FOOTER -->
 
 <footer>
-  Project Ikonik - Unofficial community project.
+  <strong>PROJECT IKONIK</strong>
+
+  <p>
+    An independent, unofficial fan project.
+    Not affiliated with or endorsed by Epic Games.
+  </p>
+
+  <p>© 2026 Project Ikonik.</p>
 </footer>
+
+<script>
+  // Add your Discord invite URL below when ready.
+  const discordURL = "";
+
+  const discordButton =
+    document.getElementById("discord-link");
+
+  if (discordURL) {
+    discordButton.href = discordURL;
+    discordButton.target = "_blank";
+    discordButton.rel = "noopener noreferrer";
+  } else {
+    discordButton.addEventListener("click", function(e) {
+      e.preventDefault();
+      alert("Discord invite coming soon!");
+    });
+  }
+</script>
 
 </body>
 </html>
