@@ -4,17 +4,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Ikonik | The Agency</title>
 
-<title>Project Ikonik | OG Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Rajdhani:wght@400;500;600;700&display=swap');
-
 :root {
-  --yellow: #ffdc24;
-  --blue: #0099ff;
-  --dark: #071426;
-  --white: #ffffff;
+  --gold: #e9bc50;
+  --dark: #101014;
+  --panel: #1b1b20;
+  --white: #f5f2e9;
 }
 
 * {
@@ -28,52 +27,54 @@ html {
 body {
   margin: 0;
   background: var(--dark);
-  color: white;
-  font-family: 'Rajdhani', sans-serif;
-  overflow-x: hidden;
+  color: var(--white);
+  font-family: Rajdhani, sans-serif;
+}
+
+h1,h2,h3,.logo,.btn {
+  font-family: Anton, sans-serif;
+  font-weight: 400;
+  letter-spacing: 1px;
 }
 
 /* NAVIGATION */
 
 nav {
+  background: rgba(13,13,16,.97);
+  border-bottom: 3px solid var(--gold);
+  padding: 18px 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   position: sticky;
   top: 0;
   z-index: 100;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 7%;
-  background: rgba(5, 14, 31, .95);
-  border-bottom: 3px solid #168bdb;
-  backdrop-filter: blur(12px);
 }
 
 .logo {
-  font-family: Anton, sans-serif;
   font-size: 29px;
-  letter-spacing: 2px;
   font-style: italic;
 }
 
 .logo span {
-  color: var(--yellow);
+  color: var(--gold);
 }
 
-.nav-links {
+.links {
   display: flex;
   gap: 25px;
+  flex-wrap: wrap;
 }
 
-.nav-links a {
+.links a {
   color: white;
   text-decoration: none;
   font-weight: 700;
-  font-size: 17px;
   transition: .2s;
 }
 
-.nav-links a:hover {
-  color: var(--yellow);
+.links a:hover {
+  color: var(--gold);
 }
 
 /* HERO */
@@ -81,120 +82,101 @@ nav {
 .hero {
   min-height: 85vh;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   text-align: center;
+  padding: 100px 20px;
   position: relative;
-  padding: 90px 20px;
   overflow: hidden;
 
   background:
     radial-gradient(
-      ellipse at 50% 80%,
-      rgba(30, 159, 255, .55),
-      transparent 60%
+      ellipse at center,
+      rgba(203,153,55,.22),
+      transparent 65%
     ),
     linear-gradient(
       145deg,
-      #071426 0%,
-      #103d77 45%,
-      #4b287f 100%
+      #121215,
+      #333025,
+      #09090b
     );
 }
 
 .hero::before {
-  content: "";
+  content: "02";
   position: absolute;
-  width: 550px;
-  height: 550px;
-  border-radius: 50%;
-  background: rgba(65, 174, 255, .15);
-  filter: blur(80px);
-  animation: float 7s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-35px);
-  }
+  font-family: Anton;
+  font-size: 450px;
+  opacity: .035;
+  pointer-events: none;
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 900px;
 }
 
-.tag {
+.classified {
+  color: var(--gold);
+  border: 1px solid var(--gold);
   display: inline-block;
-  padding: 8px 20px;
-  background: #ffdc24;
-  color: #101010;
+  padding: 8px 22px;
+  letter-spacing: 4px;
   font-weight: 700;
-  transform: skew(-8deg);
-  letter-spacing: 2px;
+  background: rgba(0,0,0,.4);
 }
 
 .hero h1 {
-  font-family: Anton, sans-serif;
-  font-size: clamp(65px, 12vw, 145px);
-  font-style: italic;
+  font-size: clamp(65px, 12vw, 140px);
   line-height: 1;
   margin: 25px 0;
-  text-shadow: 7px 8px 0 rgba(0,0,0,.35);
+  font-style: italic;
+  text-shadow: 6px 7px #000;
 }
 
 .hero h1 span {
-  color: var(--yellow);
+  color: var(--gold);
 }
 
 .hero p {
-  font-size: 24px;
+  font-size: 23px;
+  color: #d1c9b6;
   font-weight: 600;
-  color: #e0edff;
-  margin-bottom: 35px;
 }
-
-/* BUTTONS */
 
 .buttons {
   display: flex;
-  justify-content: center;
   gap: 18px;
+  justify-content: center;
   flex-wrap: wrap;
+  margin-top: 35px;
 }
 
 .btn {
   display: inline-block;
-  padding: 16px 35px;
+  padding: 15px 35px;
   text-decoration: none;
-  font-family: Anton, sans-serif;
-  font-size: 22px;
-  letter-spacing: 1px;
+  font-size: 21px;
+  transition: .2s;
   transform: skew(-5deg);
-  transition: .25s;
-  cursor: pointer;
-  border: none;
+  border: 0;
 }
 
 .btn:hover {
-  transform: skew(-5deg) scale(1.06);
-  filter: brightness(1.12);
+  transform: skew(-5deg) scale(1.05);
 }
 
-.btn-yellow {
-  background: var(--yellow);
-  color: #121212;
-  box-shadow: 5px 5px 0 #bb8e00;
+.gold {
+  background: var(--gold);
+  color: #111;
+  box-shadow: 5px 5px #92712b;
 }
 
-.btn-blue {
-  background: #168bdb;
-  color: white;
-  box-shadow: 5px 5px 0 #064b88;
+.outline {
+  color: var(--gold);
+  border: 2px solid var(--gold);
+  background: #151515;
 }
 
 /* SECTIONS */
@@ -204,193 +186,177 @@ section {
 }
 
 .section-title {
-  font-family: Anton, sans-serif;
-  font-size: clamp(35px, 6vw, 55px);
+  font-size: clamp(38px, 6vw, 60px);
   text-align: center;
-  font-style: italic;
   margin: 0 0 15px;
 }
 
-.section-subtitle {
+.subtitle {
+  color: #aaa;
   text-align: center;
-  color: #b8cce6;
   font-size: 20px;
   margin-bottom: 45px;
 }
 
-/* SEASONS */
+/* AGENCY */
 
-.seasons {
-  background: linear-gradient(180deg, #071426, #102a50);
+.agency {
+  background: #18181c;
 }
 
-.season-grid {
+.agency-box {
+  max-width: 950px;
+  margin: auto;
+  padding: 50px 30px;
+  background: linear-gradient(135deg,#29271f,#111115);
+  border: 1px solid #756039;
+  text-align: center;
+}
+
+.agency-symbol {
+  font-size: 75px;
+  color: var(--gold);
+}
+
+.agency-box h3 {
+  font-size: 40px;
+  margin: 10px;
+}
+
+.agency-box p {
+  font-size: 20px;
+  color: #c7c2b5;
+}
+
+/* FACTIONS */
+
+.factions {
+  background: #101014;
+}
+
+.faction-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 22px;
-  max-width: 1300px;
+  grid-template-columns: repeat(2,1fr);
+  gap: 25px;
+  max-width: 1100px;
   margin: auto;
 }
 
-.season-card {
-  min-height: 310px;
-  padding: 25px;
+.faction {
+  min-height: 330px;
+  padding: 35px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  border: 2px solid rgba(255,255,255,.15);
   transition: .3s;
-  position: relative;
-  overflow: hidden;
 }
 
-.season-card:hover {
-  transform: translateY(-10px);
-  border-color: var(--yellow);
+.faction:hover {
+  transform: translateY(-8px);
 }
 
-.s3 {
-  background: linear-gradient(145deg, #172c79, #833fc1);
+.ghost {
+  background: linear-gradient(145deg,#eee9da,#858782);
+  color: #151515;
 }
 
-.s4 {
-  background: linear-gradient(145deg, #cc5424, #471858);
+.shadow {
+  background: linear-gradient(145deg,#33333c,#08080a);
+  border: 1px solid #555;
 }
 
-.s5 {
-  background: linear-gradient(145deg, #a64fba, #d99d43);
-}
-
-.s7 {
-  background: linear-gradient(145deg, #2474b5, #a0e5ff);
-}
-
-.season-number {
-  font-family: Anton, sans-serif;
-  font-size: 95px;
-  opacity: .25;
-  position: absolute;
-  right: 15px;
-  top: 0;
-}
-
-.season-card h3 {
-  font-family: Anton, sans-serif;
-  font-size: 32px;
+.faction h3 {
+  font-size: 65px;
   margin: 0;
 }
 
-.season-card p {
-  font-size: 17px;
-  font-weight: 600;
+.faction p {
+  font-size: 20px;
+  font-weight: 700;
 }
 
 /* DOWNLOAD */
 
 .download {
-  background: linear-gradient(135deg, #155da0, #09234c);
+  background: linear-gradient(135deg,#5b4927,#151516);
   text-align: center;
 }
 
 .download-box {
   max-width: 750px;
   margin: auto;
+  border: 2px solid var(--gold);
   padding: 45px 25px;
-  background: rgba(0,0,0,.25);
-  border: 2px solid rgba(255,255,255,.15);
+  background: rgba(0,0,0,.4);
 }
 
 .download-box h2 {
-  font-family: Anton, sans-serif;
-  font-size: 45px;
+  font-size: 48px;
 }
 
 .download-box p {
   font-size: 20px;
-  color: #d2e3f5;
+  color: #ccc;
 }
 
 /* STATUS */
 
 .status {
-  background: #08172c;
   text-align: center;
+  background: #141418;
 }
 
-.status-box {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  background: #142d49;
+.status-indicator {
+  display: inline-block;
   padding: 18px 35px;
-  border: 1px solid #315477;
-  font-size: 20px;
+  background: #252328;
+  border: 1px solid var(--gold);
+  color: var(--gold);
   font-weight: 700;
+  font-size: 20px;
 }
 
-.dot {
-  width: 12px;
-  height: 12px;
-  background: #ffbf38;
-  border-radius: 50%;
-}
-
-/* COMMUNITY */
+/* DISCORD */
 
 .community {
   text-align: center;
-  background: linear-gradient(145deg, #25215e, #0a2345);
+  background: #201d19;
 }
 
 .community p {
+  color: #bbb;
   font-size: 21px;
-  color: #d3dcf4;
 }
 
 /* FOOTER */
 
 footer {
-  background: #040b15;
-  padding: 35px 20px;
+  background: #080809;
   text-align: center;
-  color: #879ab0;
-  font-size: 15px;
+  padding: 35px;
+  color: #888;
+  border-top: 2px solid var(--gold);
 }
 
 footer strong {
-  color: white;
+  color: var(--gold);
 }
 
-/* RESPONSIVE */
+/* MOBILE */
 
-@media(max-width: 950px) {
-  .season-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media(max-width: 600px) {
+@media(max-width:700px) {
   nav {
     flex-direction: column;
     gap: 15px;
   }
 
-  .nav-links {
-    gap: 13px;
-    flex-wrap: wrap;
+  .links {
     justify-content: center;
+    gap: 13px;
   }
 
-  .nav-links a {
-    font-size: 14px;
-  }
-
-  .season-grid {
+  .faction-grid {
     grid-template-columns: 1fr;
-  }
-
-  .hero p {
-    font-size: 19px;
   }
 
   section {
@@ -398,10 +364,12 @@ footer strong {
   }
 }
 
-@media(prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation: none !important;
-    scroll-behavior: auto !important;
+@media(prefers-reduced-motion:reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,*::before,*::after {
     transition: none !important;
   }
 }
@@ -417,22 +385,23 @@ footer strong {
     PROJECT <span>IKONIK</span>
   </div>
 
-  <div class="nav-links">
+  <div class="links">
     <a href="#home">HOME</a>
-    <a href="#seasons">SEASONS</a>
+    <a href="#agency">AGENCY</a>
+    <a href="#factions">FACTIONS</a>
     <a href="#download">DOWNLOAD</a>
-    <a href="#status">STATUS</a>
     <a href="#community">DISCORD</a>
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- HOMEPAGE -->
 
 <header class="hero" id="home">
+
   <div class="hero-content">
 
-    <div class="tag">
-      THE CLASSIC EXPERIENCE
+    <div class="classified">
+      TOP SECRET // CHAPTER 02
     </div>
 
     <h1>
@@ -441,62 +410,88 @@ footer strong {
     </h1>
 
     <p>
-      Relive the atmosphere of the early seasons.
-      Your community. Your legacy.
+      Welcome to the Agency.
+      Your mission begins here.
     </p>
 
     <div class="buttons">
-      <a href="#download" class="btn btn-yellow">
+
+      <a href="#download" class="btn gold">
         DOWNLOAD LAUNCHER
       </a>
 
-      <a href="#community" class="btn btn-blue">
-        JOIN COMMUNITY
+      <a href="#factions" class="btn outline">
+        EXPLORE FACTIONS
       </a>
+
     </div>
 
   </div>
+
 </header>
 
-<!-- SEASONS -->
+<!-- AGENCY -->
 
-<section class="seasons" id="seasons">
+<section class="agency" id="agency">
 
   <h2 class="section-title">
-    EXPLORE THE OG ERAS
+    WELCOME TO THE AGENCY
   </h2>
 
-  <p class="section-subtitle">
-    A tribute to the unforgettable Chapter 1 atmosphere.
+  <p class="subtitle">
+    Chapter 2 Season 2 inspired experience.
   </p>
 
-  <div class="season-grid">
+  <div class="agency-box">
 
-    <div class="season-card s3">
-      <span class="season-number">03</span>
-      <h3>SEASON 3</h3>
-      <p>The space era.</p>
+    <div class="agency-symbol">◆</div>
+
+    <h3>OPERATION IKONIK</h3>
+
+    <p>
+      Agents wanted. Discover the secret-agent
+      atmosphere of one of Fortnite's most
+      memorable seasons.
+    </p>
+
+    <p>
+      Your mission. Your choice. Your legacy.
+    </p>
+
+  </div>
+
+</section>
+
+<!-- FACTIONS -->
+
+<section class="factions" id="factions">
+
+  <h2 class="section-title">
+    CHOOSE YOUR SIDE
+  </h2>
+
+  <p class="subtitle">
+    GHOST or SHADOW. Where does your loyalty lie?
+  </p>
+
+  <div class="faction-grid">
+
+    <div class="faction ghost">
+      <h3>GHOST</h3>
+      <p>
+        Precision. Intelligence. Loyalty.
+      </p>
     </div>
 
-    <div class="season-card s4">
-      <span class="season-number">04</span>
-      <h3>SEASON 4</h3>
-      <p>Heroes rise.</p>
-    </div>
-
-    <div class="season-card s5">
-      <span class="season-number">05</span>
-      <h3>SEASON 5</h3>
-      <p>Worlds collide.</p>
-    </div>
-
-    <div class="season-card s7">
-      <span class="season-number">07</span>
-      <h3>SEASON 7</h3>
-      <p>A frozen adventure.</p>
+    <div class="faction shadow">
+      <h3>SHADOW</h3>
+      <p>
+        Stealth. Power. Control.
+      </p>
     </div>
 
   </div>
+
 </section>
 
 <!-- DOWNLOAD -->
@@ -505,39 +500,39 @@ footer strong {
 
   <div class="download-box">
 
-    <h2>READY TO DROP IN?</h2>
+    <h2>YOUR MISSION AWAITS</h2>
 
     <p>
-      The Project Ikonik launcher is currently
-      being developed.
+      The Project Ikonik launcher is
+      currently in development.
     </p>
 
-    <span class="btn btn-yellow">
+    <div class="btn gold">
       COMING SOON
-    </span>
+    </div>
 
     <p>
-      Join our community for development updates.
+      Follow our Discord for release announcements.
     </p>
 
   </div>
+
 </section>
 
-<!-- SERVER STATUS -->
+<!-- STATUS -->
 
 <section class="status" id="status">
 
   <h2 class="section-title">
-    SERVER STATUS
+    OPERATION STATUS
   </h2>
 
-  <p class="section-subtitle">
-    Project Ikonik infrastructure.
+  <p class="subtitle">
+    Project Ikonik development status.
   </p>
 
-  <div class="status-box">
-    <span class="dot"></span>
-    IN DEVELOPMENT
+  <div class="status-indicator">
+    ● IN DEVELOPMENT
   </div>
 
 </section>
@@ -547,20 +542,15 @@ footer strong {
 <section class="community" id="community">
 
   <h2 class="section-title">
-    JOIN THE COMMUNITY
+    JOIN THE AGENCY
   </h2>
 
   <p>
-    Meet other players and follow Project Ikonik's progress.
+    Join the Project Ikonik community.
+    Receive announcements and development updates.
   </p>
 
-  <!-- Replace # with your Discord invite link -->
-
-  <a
-    href="#"
-    class="btn btn-blue"
-    id="discord-link"
-  >
+  <a href="#" id="discord" class="btn gold">
     JOIN DISCORD
   </a>
 
@@ -569,6 +559,7 @@ footer strong {
 <!-- FOOTER -->
 
 <footer>
+
   <strong>PROJECT IKONIK</strong>
 
   <p>
@@ -577,21 +568,21 @@ footer strong {
   </p>
 
   <p>© 2026 Project Ikonik.</p>
+
 </footer>
 
 <script>
-  // Add your Discord invite URL below when ready.
+  // Replace this with your Discord invite.
   const discordURL = "";
 
-  const discordButton =
-    document.getElementById("discord-link");
+  const button = document.getElementById("discord");
 
   if (discordURL) {
-    discordButton.href = discordURL;
-    discordButton.target = "_blank";
-    discordButton.rel = "noopener noreferrer";
+    button.href = discordURL;
+    button.target = "_blank";
+    button.rel = "noopener noreferrer";
   } else {
-    discordButton.addEventListener("click", function(e) {
+    button.addEventListener("click", function(e) {
       e.preventDefault();
       alert("Discord invite coming soon!");
     });
